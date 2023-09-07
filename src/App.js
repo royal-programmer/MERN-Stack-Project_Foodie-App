@@ -1,8 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './Components/Layouts/Header';
 
 function App() {
-  return <h1>Hello! Welcome to my webpage.</h1>;
+  return <div className='App'>
+    <Header />
+  </div>;
 }
 
 export default App;
