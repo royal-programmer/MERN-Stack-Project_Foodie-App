@@ -59,7 +59,7 @@ const Home = () => {
                 Sort By Reviews
               </button>
               <button className="sort_rate p-3" onClick={handleSortByRatings}>
-                Sort By ratings
+                Sort By Ratings
               </button>
             </div>
             <div className="row mt-4">
