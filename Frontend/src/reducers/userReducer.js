@@ -27,6 +27,8 @@ import {
   CLEAR_ERRORS,
 } from "../constants/userConstant";
 
+//Reducer for managing authentication-related operations
+
 export const authReducer = (
   state = { user: {}, loading: false, isAuthenticated: false, data: {} },
   action
@@ -92,10 +94,30 @@ export const userReducer = (state = {}, action) => {
   switch (action.type) {
     case UPDATE_PROFILE_REQUEST:
     case UPDATE_PASSWORD_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
     case UPDATE_PROFILE_SUCCESS:
     case UPDATE_PASSWORD_SUCCESS:
+      return {
+        ...state,
+        laoding: false,
+        isUpdated: action.payload,
+      };
+    case UPDATE_PASSWORD_RESET:
+    case UPDATE_PROFILE_RESET:
+      return {
+        ...state,
+        isUpdated: false,
+      };
     case UPDATE_PROFILE_FAIL:
     case UPDATE_PASSWORD_FAIL:
+      return {
+        ...state,
+        laoding: false,
+        error: action.payload,
+      };
     case CLEAR_ERRORS:
       return {
         ...state,

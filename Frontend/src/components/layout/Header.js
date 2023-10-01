@@ -8,8 +8,9 @@ const Header = () => {
   const { cartItems } = useSelector((state) => state.cart);
 
   const alert = useAlert();
-  const dispatch = useDispatch;
+  const dispatch = useDispatch();
   const { user, loading } = useSelector((state) => state.auth);
+
   const logoutHandler = () => {
     dispatch(logout());
     alert.success("Logged out successfully");
@@ -73,6 +74,7 @@ const Header = () => {
                     className="rounded-circle"
                   ></img>
                 </figure>
+                <span>{user && user.name}</span>
               </Link>
               <div
                 className="dropdown-menu"

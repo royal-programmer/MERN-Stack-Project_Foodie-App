@@ -10,12 +10,15 @@ import Login from "./components/user/Login";
 import { useEffect } from "react";
 import { loadUser } from "./actions/userActions";
 import Register from "./components/user/Register";
-import store from "./store"
+import store from "./store";
+import Profile from "./components/user/Profile";
+import UpdateProfile from "./components/user/UpdateProfile";
 
 function App() {
   useEffect(() => {
     store.dispatch(loadUser());
   }, []);
+
   return (
     <Router>
       <div className="App">
@@ -28,8 +31,10 @@ function App() {
             <Route path="/delivery" element={<Delivery />} exact />
 
             {/* User */}
-            <Route path="/users/Login" element={<Login />} />
-            <Route path="/users/signup" element={<Register />}></Route>
+            <Route path="/users/login" element={<Login />} exact />
+            <Route path="/users/signup" element={<Register />} exact />
+            <Route path="/users/me" element={<Profile />} exact />
+            <Route path="/users/me/update" element={<UpdateProfile />} exact />
           </Routes>
         </div>
         <Footer />

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, register } from "../../actions/userActions";
 
 const Register = () => {
-  const alert = useAlert;
+  const alert = useAlert();
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -23,7 +23,7 @@ const Register = () => {
     (state) => state.auth
   );
 
-  //useEffect to handle redireccton and
+  //useEffect to handle redirection and error alerts
   useEffect(() => {
     if (isAuthenticated) {
       window.location.href = "/";
@@ -36,7 +36,6 @@ const Register = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-
     if (password !== passwordConfirm) {
       alert.error("Passwords do not match");
       return;
@@ -55,13 +54,14 @@ const Register = () => {
   const onChange = (e) => {
     if (e.target.name === "avatar") {
       const reader = new FileReader();
+
       reader.onload = () => {
-        if (reader.state === 2) {
+        if (reader.readyState === 2) {
           setAvatarPreview(reader.result);
           setAvatar(reader.result);
         }
       };
-      reader.readAsDataURL(e.target.file[0]);
+      reader.readAsDataURL(e.target.files[0]);
     } else {
       setUser({ ...user, [e.target.name]: e.target.value });
     }
@@ -111,57 +111,57 @@ const Register = () => {
                 value={password}
                 onChange={onChange}
               />
-
-              <div className="form-group">
-                <label htmlFor="passwordConfirm_field">Password Confirm</label>
-                <input
-                  type="password"
-                  id="passwordConfirm_field"
-                  className="form-control"
-                  name="passwordConfirm"
-                  value={passwordConfirm}
-                  onChange={onChange}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="phoneNumber_field">Phone Number</label>
-                <input
-                  type="number"
-                  id="phoneNumber_field"
-                  className="form-control"
-                  name="phoneNumber"
-                  value={phoneNumber}
-                  onChange={onChange}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="avatar_upload">Avatar</label>
-                <div className="d-flex align-items-center">
-                  <div>
-                    <figure className="avatar mr-3 item-rtl">
-                      <img
-                        src={avatarPreview}
-                        className="rounded-circle"
-                        alt="Avatar Preview"
-                      />
-                    </figure>
-                  </div>
-                  <div className="custom-file">
-                    <input
-                      type="file"
-                      name="avatar"
-                      className="custom-file-input"
-                      id="customFile"
-                      accept="images/*"
-                      onChange={onChange}
+            </div>
+            <div className="form-group">
+              <label htmlFor="passwordConfirm_field">Password Confirm</label>
+              <input
+                type="password"
+                id="passwordConfirm_field"
+                className="form-control"
+                name="passwordConfirm"
+                value={passwordConfirm}
+                onChange={onChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="phoneNumber_field">Phone Number</label>
+              <input
+                type="number"
+                id="phoneNumber_field"
+                className="form-control"
+                name="phoneNumber"
+                value={phoneNumber}
+                onChange={onChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="avatar_upload">Avatar</label>
+              <div className="d-flex align-items-center">
+                <div>
+                  <figure className="avatar mr-3 item-rtl">
+                    <img
+                      src={avatarPreview}
+                      className="rounded-circle"
+                      alt="Avatar Preview"
                     />
-                    <label className="custom-file-label" htmlFor="customFile">
-                      Choose Avatar
-                    </label>
-                  </div>
+                  </figure>
+                </div>
+                <div className="custom-file">
+                  <input
+                    type="file"
+                    name="avatar"
+                    className="custom-file-input"
+                    id="customFile"
+                    accept="images/*"
+                    onChange={onChange}
+                  />
+                  <label className="custom-file-label" htmlFor="customFile">
+                    Choose Avatar
+                  </label>
                 </div>
               </div>
             </div>
+
             <button
               id="register_button"
               type="submit"
