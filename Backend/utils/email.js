@@ -27,7 +27,7 @@ function _0x3b6d() {
     ".pug",
     "EMAIL_FROM",
     "sendWelcome",
-    "welcome\x20to\x20the\x20Order\x20It!",
+    "welcome\x20to\x20the\x20Foodie!",
     "2486580RMAnfi",
     "EMAIL_HOST",
     "firstName",
@@ -78,7 +78,7 @@ module[_0x422197(0x15b)] = class Email {
         _0x56f13c["name"][_0xe2c9a6(0x161)]("\x20")[0x0]),
       (this[_0xe2c9a6(0x167)] = _0x36147c),
       (this[_0xe2c9a6(0x15d)] =
-        "OrderIt\x20<" + process[_0xe2c9a6(0x163)][_0xe2c9a6(0x171)] + ">");
+        "Foodie\x20<" + process[_0xe2c9a6(0x163)][_0xe2c9a6(0x171)] + ">");
   }
   [_0x422197(0x160)]() {
     const _0x5310fe = _0x422197;
@@ -97,6 +97,7 @@ module[_0x422197(0x15b)] = class Email {
         __dirname + "/../view/" + _0x408aef + _0x4c9189(0x170),
         {
           firstName: this["firstName"],
+          lastName: this["lastName"],
           url: this[_0x4c9189(0x167)],
           subject: _0x425876,
         }
@@ -118,7 +119,7 @@ module[_0x422197(0x15b)] = class Email {
     const _0x2e0d11 = _0x422197;
     await this[_0x2e0d11(0x16b)](
       _0x2e0d11(0x165),
-      "password\x20reset\x20token\x20(valid\x20for\x20only\x2010\x20minutes)"
+      "Password\x20reset\x20token\x20(valid\x20for\x20only\x205\x20minutes)"
     );
   }
 };
