@@ -9,7 +9,7 @@ const Header = () => {
 
   const alert = useAlert();
   const dispatch = useDispatch();
-  const { user, loading } = useSelector((state) => state.auth);
+  const { user, loading } = useSelector((state) => state.auth);  
 
   const logoutHandler = () => {
     dispatch(logout());

@@ -12,7 +12,7 @@ const Profile = () => {
         <Loader />
       ) : (
         <>
-          <div className="row jsuitfy-content-around mt-5 user-info">
+          <div className="row justify-content-around mt-5 user-info">
             <div className="col-12 col-md-5 profile">
               <div className="d-flex align-items-center justify-content-center mb-4">
                 <figure className="avatar avatar-profile text-center mr-3">

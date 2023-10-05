@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,23 +11,24 @@ const Login = () => {
 
   const alert = useAlert();
   const dispatch = useDispatch();
-  const { isAuthenticated, loading } = useSelector((state) => state.auth);
+  const { isAuthenticated, loading, error } = useSelector(
+    (state) => state.auth
+  );
   //function to handle form submission
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      window.location.href = "/";
+    }
+    if (error) {
+      alert.error(error);
+      dispatch(clearErrors());
+    }
+  }, [dispatch, alert, isAuthenticated, error]);
+
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(login(email, password))
-      .then(() => {
-        if (isAuthenticated) {
-          window.location.href = "/";
-        } else {
-          alert.error("Login Failed");
-          dispatch(clearErrors());
-        }
-      })
-      .catch((error) => {
-        alert.error("Login Failed");
-        dispatch(clearErrors());
-      });
+    dispatch(login(email, password));
   };
   return (
     <>

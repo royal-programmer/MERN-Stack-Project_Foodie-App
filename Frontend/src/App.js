@@ -13,6 +13,9 @@ import Register from "./components/user/Register";
 import store from "./store";
 import Profile from "./components/user/Profile";
 import UpdateProfile from "./components/user/UpdateProfile";
+import ForgotPassword from "./components/user/ForgotPassword";
+import NewPassword from "./components/user/NewPassword";
+import ConfirmOrder from "./components/cart/ConfirmOrder";
 
 function App() {
   useEffect(() => {
@@ -35,6 +38,17 @@ function App() {
             <Route path="/users/signup" element={<Register />} exact />
             <Route path="/users/me" element={<Profile />} exact />
             <Route path="/users/me/update" element={<UpdateProfile />} exact />
+            <Route
+              path="/users/forgetPassword"
+              element={<ForgotPassword />}
+              exact
+            />
+            <Route
+              path="/users/resetPassword/:token"
+              element={<NewPassword />}
+              exact
+            />
+            <Route path="/confirm" element={<ConfirmOrder />} exact />
           </Routes>
         </div>
         <Footer />
