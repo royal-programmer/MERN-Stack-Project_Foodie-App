@@ -4,7 +4,8 @@ import {
   UPDATE_CART_QUANTITY,
   CLEAR_CART,
   SAVE_DELIVERY_INFO,
-} from "../constants/cartConstant";
+  SET_RESTAURANT_ID
+} from "../constants/cartConstants";
 
 const initialState = {
   cartItems: localStorage.getItem("cartItems")
@@ -61,6 +62,11 @@ export const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         cartItems: [],
+      };
+    case SET_RESTAURANT_ID:
+      return {
+        ...state,
+        restaurant: action.payload,
       };
     default:
       return state;

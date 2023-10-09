@@ -25,7 +25,7 @@ import {
   LOGOUT_SUCCESS,
   LOGOUT_FAIL,
   CLEAR_ERRORS,
-} from "../constants/userConstant";
+} from "../constants/userConstants";
 
 //Reducer for managing authentication-related operations
 

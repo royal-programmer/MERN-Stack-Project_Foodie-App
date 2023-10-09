@@ -4,7 +4,7 @@ import {
   sortByRatings,
   sortByReviews,
   toggleVegOnly,
-} from "../actions/restaurantAction";
+} from "../actions/restaurantActions";
 import Restaurant from "../components/Restaurant";
 import Loader from "../components/layout/Loader";
 import Message from "../components/Message";

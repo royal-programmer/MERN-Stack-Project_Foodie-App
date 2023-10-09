@@ -27,7 +27,7 @@ import {
   LOGOUT_SUCCESS,
   LOGOUT_FAIL,
   CLEAR_ERRORS,
-} from "../constants/userConstant";
+} from "../constants/userConstants";
 
 // ACTION LOGIN
 export const login = (email, password) => async (dispatch) => {

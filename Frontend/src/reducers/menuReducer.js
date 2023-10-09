@@ -2,7 +2,7 @@ import {
   GET_MENU_REQUEST,
   GET_MENU_SUCCESS,
   GET_MENU_FAIL,
-} from "../constants/menuConstant";
+} from "../constants/menuConstants";
 
 const initialState = {
   menus: [],

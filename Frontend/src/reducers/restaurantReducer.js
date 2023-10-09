@@ -6,7 +6,7 @@ import {
   TOGGLE_VEG_ONLY,
   SORT_BY_RATINGS,
   SORT_BY_REVIEWS,
-} from "../constants/restaurantConstant.js";
+} from "../constants/restaurantConstants.js";
 
 const initialState = {
   restaurants: [],

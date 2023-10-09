@@ -6,7 +6,7 @@ import {
   loadUser,
   clearErrors,
 } from "../../actions/userActions";
-import { UPDATE_PROFILE_RESET } from "../../constants/userConstant";
+import { UPDATE_PROFILE_RESET } from "../../constants/userConstants";
 import { useNavigate } from "react-router-dom";
 
 const UpdateProfile = () => {
