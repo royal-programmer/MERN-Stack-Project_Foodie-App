@@ -1,6 +1,3 @@
-// Action creators are defined
-
-//this will allow you to use Axios to make HTTP requests
 import axios from "axios";
 
 import {
@@ -13,24 +10,27 @@ import {
   TOGGLE_VEG_ONLY,
 } from "../constants/restaurantConstants";
 
-export const getRestaurants = () => async (dispatch) => {
-  try {
-    dispatch({ type: ALL_RESTAURANTS_REQUEST });
-    let link = "/api/v1/eats/stores";
-    const { data } = await axios.get(link);
-    const { restaurants, count } = data;
+export const getRestaurants =
+  (keyword = " ") =>
+  async (dispatch) => {
+    try {
+      dispatch({ type: ALL_RESTAURANTS_REQUEST });
+      // let link = "/api/v1/eats/stores";
+      let link = `/api/v1/eats/stores?keyword=${keyword}`;
+      const { data } = await axios.get(link);
+      const { restaurants, count } = data;
 
-    dispatch({
-      type: ALL_RESTAURANTS_SUCCESS,
-      payload: { restaurants, count },
-    });
-  } catch (error) {
-    dispatch({
-      type: ALL_RESTAURANTS_FAIL,
-      payload: error.response.data.message,
-    });
-  }
-};
+      dispatch({
+        type: ALL_RESTAURANTS_SUCCESS,
+        payload: { restaurants, count },
+      });
+    } catch (error) {
+      dispatch({
+        type: ALL_RESTAURANTS_FAIL,
+        payload: error.response.data.message,
+      });
+    }
+  };
 
 export const sortByRatings = () => {
   return {

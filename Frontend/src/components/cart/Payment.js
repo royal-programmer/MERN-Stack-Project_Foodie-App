@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import CheckoutSteps from "./CheckoutSteps";
 import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
-import { createOrder, clearErrors } from "../../actions/orderAction";
+import { createOrder, clearErrors } from "../../actions/orderActions";
 import {
   useStripe,
   useElements,
