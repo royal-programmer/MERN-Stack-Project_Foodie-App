@@ -6,6 +6,13 @@ const bodyParser = require("body-parser");
 const cloudinary = require("cloudinary");
 const fileUpload = require("express-fileupload");
 const errorMiddleware = require("./middlewares/errors");
+app.use(cors(
+  {
+    origin: ['https://food-app.vercel.app'],
+    method: ['POST', 'GET'],
+    credentials: true
+  }
+))
 app.use(express.json());
 app.use(bodyParser.urlencoded({
   extended: true
